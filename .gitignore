@@ -1,0 +1,16 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Figures and large outputs
+figures/
+results/
