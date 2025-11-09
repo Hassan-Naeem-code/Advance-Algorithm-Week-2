@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      # Ensure the repository workspace is on PYTHONPATH so tests can import `src` package
+      PYTHONPATH: ${{ github.workspace }}
     strategy:
       matrix:
         # Use an explicit, supported Python version for Ubuntu 24.04.
