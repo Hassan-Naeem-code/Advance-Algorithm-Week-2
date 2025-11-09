@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.10, 3.11]
+        # Use an explicit, supported Python version for Ubuntu 24.04.
+        # Avoid short/ambiguous versions like '3.1' which can be a typo for '3.10'.
+        python-version: [3.11]
 
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +26,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Show Python version (debug)
+        run: |
+          python --version
+          which python
 
       - name: Run tests
         run: |
